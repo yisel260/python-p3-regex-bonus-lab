@@ -1,44 +1,37 @@
-"""
-pytest requires that all testing modules, classes, methods, and functions
-contain the word "test" somewhere within them.
+from distutils.filelist import findall
+import re
 
-The conventions for naming tests in the Python curriculum are as follows:
+from lib.regex import my_regex
 
-    - One test module should be created for each class. If there are no classes
-      to test, one test module should be created for each module being tested.
-    - Test modules should be named {classname}_test.py, or {modulename}_test.py
-      if necessary.
-    - Test modules should be located at the base of the "testing" package.
-
-    In {modulename}_test.py:
-        - There should be one testing class for each function, named
-          Test{Functionname}.
-        - Each testing class should contain the following docstring:
-
-            '''Function {functionname}() in {modulename}.py'''
-
-        - Each testing method should be named test_{performs/does_behavior},
-          where {performs/does_behavior} is a clear and concise description of
-          the desired behavior.
-        - Each testing method should only test one behavior.
-        - Each testing method should contain the following docstring:
-
-            '''performs/does behavior when {x} happens.'''
-            
-            ...where {x} describes the manipulation that takes place within
-            the test.
+findall_string = """
+    It's such a lovely day today.
+    Where'd all the time go?
+    Some weather we're having today, huh?
+    No day but today.
+    Tomorrow never knows!
+    Maybe today's just not my day.
+    It's clobbering time!
 """
 
-class TestFunctionA:
-    '''Function {functionname}() in {modulename}.py'''
+class TestRegEx:
+    '''my_regex in regex.py'''
 
-    def test_performs_behavior(self):
-        '''performs behavior when something happens.'''
-        assert(False)
+    def test_matches_its_such_a_lovely_day(self):
+        '''matches the string "It's such a lovely day today."'''
+        assert(my_regex.fullmatch("It's such a lovely day today."))
 
-class TestFunctionB:
-    '''Function {functionname}() in {modulename}.py'''
+    def test_matches_some_weather_were_having(self):
+        '''matches the string "Some weather we're having today, huh?"'''
+        assert(my_regex.fullmatch("Some weather we're having today, huh?"))
 
-    def test_performs_behavior(self):
-        '''performs behavior when something happens.'''
-        assert(False)
+    def test_matches_maybe_todays_not_my_day(self):
+        '''matches the string "Maybe today's just not my day."'''
+        assert(my_regex.fullmatch("Maybe today's just not my day."))
+
+    def test_finds_all_matches(self):
+        '''can be used to find these three strings and ONLY these three strings.'''
+        assert(my_regex.findall(findall_string) == [
+            "It's such a lovely day today.",
+            "Some weather we're having today, huh?",
+            "Maybe today's just not my day.",
+        ])

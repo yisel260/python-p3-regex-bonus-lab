@@ -26,11 +26,18 @@ messages to complete your work in `regex.py` in the `lib` folder.
 
 This lab is meant to give you experience with writing patterns for regular
 expressions and using the `re` module to check your pattern against different
-strings.
+strings. Use [regex101][regex101] to test your pattern as you work through the
+different strings.
 
 - Run `pytest -x` to execute the first test. This will check your RegEx against
   the string `"It's such a lovely day today."`
-- Once you've written 
+- Once you've compiled a regular expression that matches this first string,
+  run `pytest -x` again to check against the next string in line.
+- Your RegEx should match **all** of the strings in the test file!
+- The last test uses the `findall()` method to search for these three strings
+  in a list. You can check for this list in `testing/regex_test.py`.
+    - _**If you hacked your way through the first three with `r".*"`, you'll
+      get caught here!**_
 
 Once all of your tests are passing, commit and push your work using `git` to
 submit.
@@ -39,7 +46,8 @@ submit.
 
 ## Resources
 
-- [Resource 1](https://www.python.org/doc/essays/blurb/)
-- [Reused Resource][reused resource]
+- [re - Regular expression operations - Python](https://docs.python.org/3/library/re.html)
+- [regex101][regex101]
+- [Python Regular Expressions - Google for Education](https://developers.google.com/edu/python/regular-expressions)
 
-[reused resource]: https://docs.python.org/3/
+[regex101]: https://regex101.com/
