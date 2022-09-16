@@ -42,6 +42,26 @@ different strings.
 Once all of your tests are passing, commit and push your work using `git` to
 submit.
 
+### Hints
+
+Regular expressions can be confusing and frustrating. You'll only get used to
+them with practice. That being said, there are some tools and tricks that will
+help you our along the way:
+
+- `\w` is shorthand for any word character: `[A-Za-z0-9_]`. `\W` is shorthand
+  for anything outside of that range.
+- Similarly to `\w`, `\S` will match any non-whitespace character- though it
+  includes characters not found in words as well. `\s` matches any single
+  whitespace character.
+- Getting quotes, backslashes, and other operational characters into your regex
+  requires that you lead with an escape character, the backslash (`\`).
+- Ignoring a specific set of characters (say, 'c', 'h', 'a', 'r', 's') can be
+  accomplished with square brackets and carrots (`^`): [^chars].
+- Matching one pattern _or_ another with the same regex can be accomplished with
+  the `|` operator: `r'hello|goodbye'`.
+- [regex101][regex101] provides a "Quick Reference" section in the bottom right
+  corner that is very helpful for more tips and tricks along the way.
+
 ***
 
 ## Resources
