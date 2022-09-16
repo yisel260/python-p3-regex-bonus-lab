@@ -1,9 +1,9 @@
 from distutils.filelist import findall
 import re
 
-from lib.regex import my_regex
+from regex import my_regex
 
-findall_string = """
+FINDALL_STRING = """
     It's such a lovely day today.
     Where'd all the time go?
     Some weather we're having today, huh?
@@ -30,7 +30,7 @@ class TestRegEx:
 
     def test_finds_all_matches(self):
         '''can be used to find these three strings and ONLY these three strings.'''
-        assert(my_regex.findall(findall_string) == [
+        assert(my_regex.findall(FINDALL_STRING) == [
             "It's such a lovely day today.",
             "Some weather we're having today, huh?",
             "Maybe today's just not my day.",
